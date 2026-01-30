@@ -1,0 +1,116 @@
+body {
+    position: relative;
+    background-color: #ffdab9;
+
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+:root {
+    --hour_angle: 0deg;
+    --minute_angle: 0deg;
+    --second_angle: 0deg;
+}
+
+h1 {
+    padding: 1.5vw;
+    position: absolute;
+    top: 2vw;
+
+    font-size: 10.5vw;
+    font-weight: 900;
+    text-shadow:
+        1px 1px 0 grey,
+        2px 2px 0 grey,
+        3px 3px 0 grey;
+    box-shadow: 0 2vw 2vw;
+    background-color: rgb(245, 190, 145);
+}
+
+#clockcircle {
+    position: absolute;
+    top: 40vw;
+
+box-shadow: 0 0 2vw;
+    height: 82vw;
+    width: 82vw;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2.73vw;
+    background: conic-gradient(white 0deg 180deg, olive 180deg 360deg);
+
+    /*conic gradient for making halfcircle different color*/
+    /*for centering grid*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid {
+    position: relative;
+
+    display: grid;
+    grid: repeat(3, 15px) / repeat(3, 15px);
+    place-items: center;
+}
+
+.hands {
+    position: absolute;
+    bottom: 50%;
+    transform-origin: bottom center;
+    transition: transform 0s linear;
+    clip-path: polygon(50% 0%, 100% 90%, 50% 100%, 0% 90%); /*diamond shape*/
+}
+
+#hourhand {
+    height: 25vw;
+    width: 2.75vw;
+    background-color: brown;
+    transform: rotate(var(--hour_angle));
+}
+
+#minutehand {
+    height: 30vw;
+    width: 1.925vw;
+    background-color: peru;
+    transform: rotate(var(--minute_angle));
+}
+
+#secondhand {
+    height: 35vw;
+    width: 1.1vw;
+    background-color: sienna;
+    transform: rotate(var(--second_angle));
+}
+
+#center_point {
+    position: relative;
+    z-index: 5;
+    grid-column: 2;
+    grid-row: 2;
+    height: 3.28vw;
+    width: 3.28vw;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.numbers {
+    background-color: black;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#numberWrapper {
+    grid-column: 2;
+    grid-row: 2;
+
+    display: grid;
+    grid: repeat(3, 15px) / repeat(3, 15px);
+    place-items: center;
+}
